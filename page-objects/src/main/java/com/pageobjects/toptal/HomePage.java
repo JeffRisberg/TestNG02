@@ -27,13 +27,13 @@ public class HomePage extends BasePage {
     } catch (InterruptedException e) {
     }
 
-    // Initialize Elements
     PageFactory.initElements(driver, this);
   }
 
   public ApplyPage clickOnDeveloperApplyButton() {
     try {
-      ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", developerApplyButton);
+      ((JavascriptExecutor) driver)
+          .executeScript("arguments[0].scrollIntoView(true);", developerApplyButton);
       Thread.sleep(500);
     } catch (InterruptedException e) {
     }

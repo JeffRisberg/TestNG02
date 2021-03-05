@@ -4,8 +4,6 @@ import com.framework.core.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import static org.testng.Assert.assertEquals;
-
 public class StorePage extends BasePage {
 
   // Page URL
@@ -16,7 +14,6 @@ public class StorePage extends BasePage {
 
     assertCurrentUrl(PAGE_URL);
 
-    // Initialize Elements
     PageFactory.initElements(driver, this);
   }
 }

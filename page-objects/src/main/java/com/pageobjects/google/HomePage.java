@@ -27,7 +27,6 @@ public class HomePage extends BasePage {
     } catch (InterruptedException e) {
     }
 
-    // Initialize Elements
     PageFactory.initElements(driver, this);
   }
 

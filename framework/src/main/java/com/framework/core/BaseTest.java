@@ -12,7 +12,7 @@ public class BaseTest {
   private static WebDriver driver;
 
   @BeforeSuite(alwaysRun = true)
-  public void beforeClass() {
+  protected void beforeClass() {
     System.setProperty("headless", "false"); // You can set this property elsewhere
     String headless = System.getProperty("headless");
 
@@ -27,7 +27,7 @@ public class BaseTest {
   }
 
   @AfterSuite(alwaysRun = true)
-  public void afterClass() {
+  protected void afterClass() {
     if (null != driver) {
       driver.close();
       driver.quit();
