@@ -6,18 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="rima-page-objects" />
+        <module name="framework" />
+        <module name="page-objects" />
         <module name="regression-tests" />
         <module name="domain" />
-        <module name="rima-framework" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="domain" target="1.5" />
+      <module name="domain" target="1.8" />
+      <module name="framework" target="1.8" />
+      <module name="page-objects" target="1.8" />
       <module name="regression-tests" target="1.8" />
-      <module name="rima-framework" target="1.5" />
-      <module name="rima-page-objects" target="1.5" />
-      <module name="Test-Automation-Framework" target="1.5" />
+      <module name="TestNG02" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
