@@ -1,4 +1,4 @@
-package rima.framework.core;
+package com.framework.core;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import org.openqa.selenium.WebDriver;

@@ -1,4 +1,4 @@
-package rima.framework.core;
+package com.framework.core;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

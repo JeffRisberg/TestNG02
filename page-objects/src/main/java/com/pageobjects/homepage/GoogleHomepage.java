@@ -1,7 +1,7 @@
-package rima.pageobjects.homepage;
+package com.pageobjects.homepage;
 
 import org.openqa.selenium.WebDriver;
-import rima.framework.core.BasePage;
+import com.framework.core.BasePage;
 
 public class GoogleHomepage extends BasePage {
 
