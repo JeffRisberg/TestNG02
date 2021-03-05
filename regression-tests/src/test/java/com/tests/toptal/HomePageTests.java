@@ -7,13 +7,13 @@ import org.testng.annotations.Test;
 
 public class HomePageTests extends BaseTest {
 
-  @Test
-  public void homepageTests() {
+  @Test(groups = { "toptal" })
+  public void homePageTests() {
     System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
-    HomePage toptalHomePage = new HomePage(getDriver());
+    HomePage homePage = new HomePage(getDriver());
 
-    ApplyPage applyPage = toptalHomePage.clickOnDeveloperApplyButton();
+    ApplyPage applyPage = homePage.clickOnDeveloperApplyButton();
 
     applyPage.selectType("developers");
     applyPage.typeFullName("Bob Smith");

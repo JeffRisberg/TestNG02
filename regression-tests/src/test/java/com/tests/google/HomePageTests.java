@@ -8,8 +8,8 @@ import com.pageobjects.google.HomePage;
 
 public class HomePageTests extends BaseTest {
 
-  @Test
-  public void homepageTests() {
+  @Test(groups = { "google" })
+  public void homePageTests() {
     System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
     HomePage homePage = new HomePage(getDriver());
