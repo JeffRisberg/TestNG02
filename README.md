@@ -37,7 +37,7 @@ a home page for each.
 
 The actual tests are located here.  Since the tests are mostly creating and using the Page Objects, the tests themselves
 are quite short.  Putting the complexity into the Page Objects helps assure that re-use is being generated across 
-multiple tests (in this example there are not a large number of tests, but in production tests we have found the the
+multiple tests (in this example there are not many tests, but in production tests we have found that the
 page objects are used from several times to dozens of times).
 
 ## For more information
