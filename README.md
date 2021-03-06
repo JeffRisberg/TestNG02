@@ -12,7 +12,14 @@ Within Selenium, this example is using locaters based on id, class, link_text, a
 
 The project is broken up into four distinct subprojects, each of which have a specific function.
 
+The build tool used is Maven 3.6.x.
+
 ## Organization
+
+### Framework
+
+This subproject defines the base classes for Test and for Pages.  These classes would be common to all test 
+applications, and could be moved into a library.
 
 ### Domain
 
@@ -21,16 +28,12 @@ email, etc. along with a type, such as Designer or Developer.
 
 There is an enum for the type, and class for the candidate.
 
-### Framework
-
-This subproject defines the base classes for Test and for Pages.
-
-### Page Objects
+### Page-Objects
 
 All Page Objects are defined here.  They are broken out into those for Google, and those for Toptal, starting with
 a home page for each.
 
-### Regression Tests
+### Regression-Tests
 
 The actual tests are located here.  Since the tests are mostly creating and using the Page Objects, the tests themselves
 are quite short.  Putting the complexity into the Page Objects helps assure that re-use is being generated across 
