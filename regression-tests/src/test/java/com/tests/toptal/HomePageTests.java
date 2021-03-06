@@ -5,13 +5,13 @@ import com.domain.CandidateFixture;
 import com.framework.core.BaseTest;
 import com.pageobjects.toptal.ApplyPage;
 import com.pageobjects.toptal.HomePage;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 public class HomePageTests extends BaseTest {
   protected Candidate candidate;
 
-  @BeforeSuite(alwaysRun = true)
+  @BeforeClass(alwaysRun = true)
   private void setup() {
     System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
