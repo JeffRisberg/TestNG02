@@ -45,7 +45,7 @@ public class ApplyPage extends BasePage {
     PageFactory.initElements(driver, this);
 
     if (cookieBannerAllowButton != null) {
-      highlightElement(getDriver(), cookieBannerAllowButton, 2);
+      highlightElement(getDriver(), cookieBannerAllowButton, HIGHLIGHT_DURATION);
 
       cookieBannerAllowButton.click();
     }
@@ -57,7 +57,7 @@ public class ApplyPage extends BasePage {
 
     threadSleep(500);
 
-    highlightElement(getDriver(), defaultValueElement, 2);
+    highlightElement(getDriver(), defaultValueElement, HIGHLIGHT_DURATION);
 
     defaultValueElement.click(); // open it
 
@@ -67,7 +67,7 @@ public class ApplyPage extends BasePage {
 
     WebElement typeChild = talentSelector.findElement(By.xpath(xPathStr));
 
-    highlightElement(getDriver(), typeChild, 2);
+    highlightElement(getDriver(), typeChild, HIGHLIGHT_DURATION);
 
     threadSleep(500);
 
@@ -77,7 +77,7 @@ public class ApplyPage extends BasePage {
   public void typeFullName(String fullName) {
     scrollToView(getDriver(), fullNameText);
 
-    highlightElement(getDriver(), fullNameText, 2);
+    highlightElement(getDriver(), fullNameText, HIGHLIGHT_DURATION);
 
     fullNameText.sendKeys(fullName);
   }
@@ -85,7 +85,7 @@ public class ApplyPage extends BasePage {
   public void typeEmail(String email) {
     scrollToView(getDriver(), emailText);
 
-    highlightElement(getDriver(), emailText, 2);
+    highlightElement(getDriver(), emailText, HIGHLIGHT_DURATION);
 
     emailText.sendKeys(email);
   }
@@ -93,13 +93,13 @@ public class ApplyPage extends BasePage {
   public void typePassword(String password) {
     scrollToView(getDriver(), passwordText);
 
-    highlightElement(getDriver(), passwordText, 2);
+    highlightElement(getDriver(), passwordText, HIGHLIGHT_DURATION);
 
     passwordText.sendKeys(password);
   }
 
   public void clickCommit() {
-    highlightElement(getDriver(), commitButton, 2);
+    highlightElement(getDriver(), commitButton, HIGHLIGHT_DURATION);
 
     scrollToView(getDriver(), commitButton);
 

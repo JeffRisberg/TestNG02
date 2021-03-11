@@ -3,6 +3,7 @@ package com.framework.core;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -14,6 +15,7 @@ public class BasePage {
   private static final int TIMEOUT = 5; // seconds
   private static final int POLLING = 100; // milliseconds
 
+  protected static final int HIGHLIGHT_DURATION = 2; // seconds
   protected WebDriver driver;
   private WebDriverWait wait;
 
@@ -38,6 +40,17 @@ public class BasePage {
     }
 
     assertEquals(currentUrl, url);
+  }
+
+  public void waitForLoad(WebDriver driver, int timeoutSec) {
+    ExpectedCondition<Boolean> pageLoadCondition = new
+            ExpectedCondition<Boolean>() {
+              public Boolean apply(WebDriver driver) {
+                return ((JavascriptExecutor)driver).executeScript("return document.readyState").equals("complete");
+              }
+            };
+    WebDriverWait wait = new WebDriverWait(driver, timeoutSec);
+    wait.until(pageLoadCondition);
   }
 
   public void threadSleep(int mills) {
@@ -67,7 +80,7 @@ public class BasePage {
     }
   }
 
-  private WebElement getElement(WebDriver driver, By locator, int timeoutSec) throws Exception {
+  public WebElement getElement(WebDriver driver, By locator, int timeoutSec) {
     WebDriverWait wait = new WebDriverWait(driver, timeoutSec);
     wait.ignoring(NoSuchElementException.class).ignoring(StaleElementReferenceException.class);
 
@@ -76,7 +89,7 @@ public class BasePage {
     return driver.findElement(locator);
   }
 
-  private List<WebElement> getElements(WebDriver driver, By locator, int timeoutSec) throws Exception {
+  public List<WebElement> getElements(WebDriver driver, By locator, int timeoutSec) {
     WebDriverWait wait = new WebDriverWait(driver, timeoutSec);
     wait.ignoring(NoSuchElementException.class).ignoring(StaleElementReferenceException.class);
 
@@ -91,12 +104,12 @@ public class BasePage {
     wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
   }
 
-  public boolean highlightElement(WebDriver driver, WebElement element, int timeoutSec) {
+  public boolean highlightElement(WebDriver driver, WebElement element, int highlightDuration) {
     if (Boolean.parseBoolean(System.getProperties().getProperty("headless"))) {
       return true;
     }
 
-    WebDriverWait wait = new WebDriverWait(driver, timeoutSec);
+    WebDriverWait wait = new WebDriverWait(driver, highlightDuration);
     wait.ignoring(NoSuchElementException.class).ignoring(StaleElementReferenceException.class);
     wait.until(ExpectedConditions.visibilityOf(element));
 

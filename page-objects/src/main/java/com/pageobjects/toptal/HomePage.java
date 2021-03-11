@@ -30,7 +30,7 @@ public class HomePage extends BasePage {
   public ApplyPage clickOnDeveloperApplyButton() {
     scrollToView(getDriver(), developerApplyButton);
 
-    highlightElement(getDriver(), developerApplyButton, 2);
+    highlightElement(getDriver(), developerApplyButton, HIGHLIGHT_DURATION);
 
     developerApplyButton.click();
 

@@ -33,14 +33,14 @@ public class HomePage extends BasePage {
   }
 
   public AboutPage clickAboutButton() throws Exception {
-    highlightElement(getDriver(), aboutButton, 2);
+    highlightElement(getDriver(), aboutButton, HIGHLIGHT_DURATION);
 
     aboutButton.click();
     return new AboutPage(getDriver());
   }
 
   public StorePage clickStoreButton() {
-    highlightElement(getDriver(), storeButton, 2);
+    highlightElement(getDriver(), storeButton, HIGHLIGHT_DURATION);
 
     storeButton.click();
     return new StorePage(getDriver());
