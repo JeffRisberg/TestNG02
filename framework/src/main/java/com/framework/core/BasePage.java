@@ -123,11 +123,11 @@ public class BasePage {
     return true;
   }
 
-  public boolean highlightElement(WebDriver driver, By locator, int timeoutSec) {
+  public boolean highlightElement(WebDriver driver, By locator, int highlightDuration, int timeoutSec) {
     try {
       WebElement webElement = getElement(driver, locator, timeoutSec);
 
-      return highlightElement(driver, webElement, timeoutSec);
+      return highlightElement(driver, webElement, highlightDuration);
     } catch (Exception e) {
       return false;
     }
