@@ -22,21 +22,16 @@ public class HomePage extends BasePage {
     super(driver);
 
     driver.get(PAGE_URL);
-    try {
-      Thread.sleep(500);
-    } catch (InterruptedException e) {
-    }
+    threadSleep(500);
 
     PageFactory.initElements(driver, this);
   }
 
   public ApplyPage clickOnDeveloperApplyButton() {
-    try {
-      ((JavascriptExecutor) driver)
-          .executeScript("arguments[0].scrollIntoView(true);", developerApplyButton);
-      Thread.sleep(500);
-    } catch (InterruptedException e) {
-    }
+    scrollToView(getDriver(), developerApplyButton);
+
+    highlightElement(getDriver(), developerApplyButton, 2);
+
     developerApplyButton.click();
 
     return new ApplyPage(getDriver());

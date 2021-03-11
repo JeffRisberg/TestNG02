@@ -45,75 +45,64 @@ public class ApplyPage extends BasePage {
     PageFactory.initElements(driver, this);
 
     if (cookieBannerAllowButton != null) {
+      highlightElement(getDriver(), cookieBannerAllowButton, 2);
+
       cookieBannerAllowButton.click();
     }
   }
 
   public void selectType(CandidateType candidateType) {
-    WebElement defaultValue =
+    WebElement defaultValueElement =
         talentSelector.findElement(By.xpath("//div[@class='input has-default_value']"));
 
-    try {
-      Thread.sleep(500);
-    } catch (InterruptedException e) {
-    }
+    threadSleep(500);
 
-    defaultValue.click(); // open it
+    highlightElement(getDriver(), defaultValueElement, 2);
 
-    try {
-      Thread.sleep(500);
-    } catch (InterruptedException e) {
-    }
+    defaultValueElement.click(); // open it
+
+    threadSleep(500);
 
     String xPathStr = String.format("//div[@data-value='%s']", candidateType.getSelectionValue());
-    System.out.println(xPathStr);
 
     WebElement typeChild = talentSelector.findElement(By.xpath(xPathStr));
 
-    try {
-      Thread.sleep(500);
-    } catch (InterruptedException e) {
-    }
+    highlightElement(getDriver(), typeChild, 2);
+
+    threadSleep(500);
 
     typeChild.click(); // close with a selection
   }
 
   public void typeFullName(String fullName) {
-    try {
-      ((JavascriptExecutor) driver)
-          .executeScript("arguments[0].scrollIntoView(true);", fullNameText);
-      Thread.sleep(500);
-    } catch (InterruptedException e) {
-    }
+    scrollToView(getDriver(), fullNameText);
+
+    highlightElement(getDriver(), fullNameText, 2);
+
     fullNameText.sendKeys(fullName);
   }
 
   public void typeEmail(String email) {
-    try {
-      ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", emailText);
-      Thread.sleep(500);
-    } catch (InterruptedException e) {
-    }
+    scrollToView(getDriver(), emailText);
+
+    highlightElement(getDriver(), emailText, 2);
+
     emailText.sendKeys(email);
   }
 
   public void typePassword(String password) {
-    try {
-      ((JavascriptExecutor) driver)
-          .executeScript("arguments[0].scrollIntoView(true);", passwordText);
-      Thread.sleep(500);
-    } catch (InterruptedException e) {
-    }
+    scrollToView(getDriver(), passwordText);
+
+    highlightElement(getDriver(), passwordText, 2);
+
     passwordText.sendKeys(password);
   }
 
   public void clickCommit() {
-    try {
-      ((JavascriptExecutor) driver)
-          .executeScript("arguments[0].scrollIntoView(true);", commitButton);
-      Thread.sleep(500);
-    } catch (InterruptedException e) {
-    }
+    highlightElement(getDriver(), commitButton, 2);
+
+    scrollToView(getDriver(), commitButton);
+
     commitButton.click();
   }
 }
