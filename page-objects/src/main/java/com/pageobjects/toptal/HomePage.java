@@ -1,30 +1,28 @@
 package com.pageobjects.toptal;
 
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertTrue;
+
 import com.framework.core.BasePage;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.*;
 
 public class HomePage extends BasePage {
 
-  // Page URL
-  private static String PAGE_URL = "https://www.toptal.com";
-
-  // Locators
-
-  @FindBy(how = How.LINK_TEXT, using = "Apply as a Freelancer")
   private WebElement developerApplyButton;
 
   public HomePage(WebDriver driver) {
     super(driver);
 
-    driver.get(PAGE_URL);
+    assertTrue(loadProperties("toptal/homePage"));
+
+    String pageUrl = properties.getProperty("HOME_URL");
+
+    driver.get(pageUrl);
     threadSleep(500);
 
-    PageFactory.initElements(driver, this);
+    String developerApplyLinkLocator = properties.getProperty("HOME_DEVELOPER_APPLY_LINK_XPATH");
+    developerApplyButton = getElement(driver, By.xpath(developerApplyLinkLocator), 30);
+    assertNotNull(developerApplyButton, "cannot find Developer Apply link");
   }
 
   public ApplyPage clickOnDeveloperApplyButton() {

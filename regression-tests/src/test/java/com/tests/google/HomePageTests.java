@@ -30,7 +30,7 @@ public class HomePageTests extends BaseTest {
       StorePage storePage = homePage.clickStoreButton();
       assertNotNull(storePage);
     } catch (Exception e) {
-      fail();
+      fail(e.getMessage());
     }
   }
 }
